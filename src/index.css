@@ -1,0 +1,38 @@
+:root {
+  --AppBackground: #f8f8f8;
+  --EditorBackground: #ffffff;
+  --SeparatorBackground: #e8e8e87d;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr;
+  background: var(--AppBackground);
+}
+
+#Input,
+#Output {
+  margin: 1rem;
+  background: var(--EditorBackground);
+}
+
+#Input {
+  outline: 0;
+  resize: none;
+  border: none;
+}
+
+#Separator {
+  width: 2px;
+  background: var(--SeparatorBackground);
+}
+
+#Output {
+  white-space: pre;
+}
