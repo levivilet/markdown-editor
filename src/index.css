@@ -35,4 +35,5 @@ body {
 
 #Output {
   white-space: pre;
+  contain: strict;
 }
