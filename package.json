@@ -6,8 +6,7 @@
   "main": "mainProcess.js",
   "scripts": {
     "dev": "electron mainProcess.js",
-    "package": "electron-forge package",
-    "make": "electron-forge make",
+    "build": "electron-forge make",
     "publish": "electron-forge publish",
     "lint": "echo \"No linting configured\"",
     "postinstall": "snowpack"
@@ -22,18 +21,6 @@
     "forge": {
       "packagerConfig": {},
       "makers": [
-        {
-          "name": "@electron-forge/maker-squirrel",
-          "config": {
-            "name": "markdown-editor"
-          }
-        },
-        {
-          "name": "@electron-forge/maker-zip",
-          "platforms": [
-            "darwin"
-          ]
-        },
         {
           "name": "@electron-forge/maker-deb",
           "config": {}
