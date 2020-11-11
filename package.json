@@ -7,8 +7,6 @@
   "scripts": {
     "dev": "electron mainProcess.js",
     "build": "electron-forge make",
-    "publish": "electron-forge publish",
-    "lint": "echo \"No linting configured\"",
     "postinstall": "snowpack"
   },
   "keywords": [],
