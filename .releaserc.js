@@ -5,7 +5,7 @@ module.exports = {
       {
         assets: [
           {
-            name: 'markdown-editor-amd64.deb',
+            label: 'markdown-editor-amd64.deb',
             path: 'out/make/deb/x64',
           },
         ],
