@@ -6,7 +6,6 @@ module.exports = {
         assets: [
           {
             path: 'out/make/deb/x64',
-            label: 'Ubuntu Distribution',
           },
         ],
       },
