@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "electron mainProcess.js",
     "build": "electron-forge make",
-    "postinstall": "snowpack install"
+    "postinstall": "snowpack build"
   },
   "keywords": [],
   "author": {
@@ -29,13 +29,13 @@
     }
   },
   "dependencies": {
-    "dompurify": "^2.2.2",
-    "marked": "^1.2.5"
+    "dompurify": "^2.2.3",
+    "marked": "^1.2.6"
   },
   "devDependencies": {
     "@electron-forge/cli": "^6.0.0-beta.54",
     "@electron-forge/maker-deb": "^6.0.0-beta.54",
-    "electron": "10.1.5",
-    "snowpack": "^2.18.1"
+    "electron": "11.2.0",
+    "snowpack": "^3.0.11"
   }
 }
