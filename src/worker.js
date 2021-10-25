@@ -1,10 +1,10 @@
-import marked from '../web_modules/marked.js'
+import marked from "../static/js/marked.js";
 
-const renderMarkdown = (markdown) => marked(markdown)
+const renderMarkdown = (markdown) => marked(markdown);
 
 const handleMessage = ({ data }) => {
-  const html = renderMarkdown(data)
-  postMessage(html)
-}
+  const html = renderMarkdown(data);
+  postMessage(html);
+};
 
-onmessage = handleMessage
+onmessage = handleMessage;
