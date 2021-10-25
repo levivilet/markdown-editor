@@ -1,15 +1,15 @@
 module.exports = {
   plugins: [
     [
-      '@semantic-release/github',
+      "@semantic-release/github",
       {
         assets: [
           {
-            label: 'markdown-editor-amd64.deb',
-            path: 'out/make/deb/x64',
+            label: "markdown-editor-amd64.deb",
+            path: "out/make/deb/x64/markdown-editor_1.0.0_amd64.deb",
           },
         ],
       },
     ],
   ],
-}
+};
