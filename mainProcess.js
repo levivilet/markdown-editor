@@ -1,23 +1,33 @@
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow } = require("electron");
 
-const createWindow = () => {
+const createWindow = async () => {
   const mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
-  })
-  mainWindow.loadFile('src/index.html')
-}
+  });
+  await mainWindow.loadFile("src/index.html");
+};
 
-app.on('ready', createWindow)
-
-app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') {
-    app.quit()
+const handleWindowAllClosed = () => {
+  if (process.platform !== "darwin") {
+    app.quit();
   }
-})
+};
 
-app.on('activate', () => {
+const handleActivate = () => {
   if (BrowserWindow.getAllWindows().length === 0) {
-    createWindow()
+    createWindow();
   }
-})
+};
+
+const handleReady = async () => {
+  await createWindow();
+};
+
+const main = () => {
+  app.on("window-all-closed", handleWindowAllClosed);
+  app.on("activate", handleActivate);
+  app.on("ready", handleReady);
+};
+
+main();
