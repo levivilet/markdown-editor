@@ -1,4 +1,4 @@
-import marked from "../static/js/marked.js";
+import { marked } from "../static/js/marked.js";
 
 const renderMarkdown = (markdown) => marked(markdown);
 

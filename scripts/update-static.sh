@@ -32,5 +32,5 @@ download_pkg(){
 
 rm -f static/js/*
 
-download_pkg "dompurify" "2.2.3"
-download_pkg "marked" "1.2.6"
+download_pkg "dompurify" "2.2.5"
+download_pkg "marked" "4.0.12"
