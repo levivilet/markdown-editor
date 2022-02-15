@@ -1,0 +1,27 @@
+name: CI
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  release:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "17.5.0"
+      - uses: actions/cache@v2
+        id: npm-cache
+        with:
+          path: "**/node_modules"
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-node-
+      - name: npm ci
+        run: npm ci && cd e2e && npm ci
+        if: steps.npm-cache.outputs.cache-hit != 'true'
+      - name: install playwright dependencies
+        run: npx playwright install-deps
+      - run: npm run e2e

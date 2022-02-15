@@ -6,7 +6,8 @@
   "main": "mainProcess.js",
   "scripts": {
     "dev": "electron mainProcess.js",
-    "build": "electron-forge make"
+    "build": "electron-forge make",
+    "e2e": "cd e2e && npm test"
   },
   "keywords": [],
   "author": {
