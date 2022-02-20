@@ -26,7 +26,8 @@ function updateDependencies {
   fi
 }
 
-updateDependencies &&
+          updateDependencies &&
+cd e2e && updateDependencies && cd .. &&
 
 echo "Great Success!"
 
