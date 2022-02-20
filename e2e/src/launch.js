@@ -42,6 +42,7 @@ const main = async () => {
   await input.selectText();
   await input.type("# hello world");
 
+  await expect(output).toHaveText("hello world");
   expect(await output.innerHTML()).toBe(
     `<h1 id="hello-world">hello world</h1>
 `
