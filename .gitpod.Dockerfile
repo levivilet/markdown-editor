@@ -1,7 +1,20 @@
 
-FROM gitpod/workspace-full:latest
+FROM gitpod/workspace-full-vnc:latest
 
-USER gitpod
+# Install custom tools, runtime, etc.
+RUN sudo apt-get update \
+    # window manager
+    && sudo apt-get install -y jwm \
+    # electron
+    && sudo apt-get install -y libgtk-3-0 libnss3 libasound2 \
+    # native-keymap
+    && sudo apt-get install -y libx11-dev libxkbfile-dev
+RUN sudo apt-get update \
+    && sudo apt-get install -y \
+        libasound2-dev \
+        libgtk-3-dev \
+        libnss3-dev
+
 
 RUN bash -c ". .nvm/nvm.sh \
     && nvm install 17.6.0 \
@@ -9,13 +22,3 @@ RUN bash -c ". .nvm/nvm.sh \
     && nvm alias default 17.6.0"
 
 RUN echo "nvm use default &>/dev/null" >> ~/.bashrc.d/51-nvm-fix
-
-# Install dependencies
-RUN sudo apt-get update \
-    && sudo apt-get install -y --no-install-recommends \
-        xvfb x11vnc fluxbox dbus-x11 x11-utils x11-xserver-utils xdg-utils \
-        fbautostart xterm eterm gnome-terminal gnome-keyring seahorse nautilus \
-        libx11-dev libxkbfile-dev libsecret-1-dev libnotify4 libnss3 libxss1 \
-        libasound2 libgbm1 xfonts-base xfonts-terminus fonts-noto fonts-wqy-microhei \
-        fonts-droid-fallback vim-tiny nano libgconf2-dev libgtk-3-dev twm \
-    && sudo apt-get clean && sudo rm -rf /var/cache/apt/* && sudo rm -rf /var/lib/apt/lists/* && sudo rm -rf /tmp/*
