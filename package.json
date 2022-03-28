@@ -31,6 +31,6 @@
   "devDependencies": {
     "@electron-forge/cli": "^6.0.0-beta.63",
     "@electron-forge/maker-deb": "^6.0.0-beta.63",
-    "electron": "17.1.2"
+    "electron": "17.2.0"
   }
 }
