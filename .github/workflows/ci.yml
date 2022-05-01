@@ -24,7 +24,7 @@ jobs:
           key: ${{ runner.os }}-node-ci-${{ hashFiles('**/package-lock.json') }}
           restore-keys: ${{ runner.os }}-node-
       - name: npm ci
-        run: npm ci && cd e2e && npm ci
+        run: npm ci
         if: steps.npm-cache.outputs.cache-hit != 'true'
       - name: install playwright dependencies
         run: cd e2e && npx playwright install-deps
