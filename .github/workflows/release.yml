@@ -30,3 +30,19 @@ jobs:
         with:
           name: markdown-editor-amd64.deb
           path: out/make/deb/x64/markdown-editor_1.0.0_amd64.deb
+      - name: Rename Electron App (deb, x64)
+        if: matrix.os == 'ubuntu-22.04'
+        shell: bash
+        run: |
+          staging="markdown-editor-${{ needs.create-release.outputs.rg_version }}_amd64.deb"
+          mv "out/make/deb/x64/markdown-editor_1.0.0_amd64.deb" "$staging"
+          echo "ASSET_DEB_X64=$staging" >> $GITHUB_ENV
+      - name: Release Electron App (deb, x64)
+        uses: actions/upload-release-asset@v1.0.1
+        if: matrix.os == 'ubuntu-22.04'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ needs.create-release.outputs.upload_url }}
+          asset_path: ${{ env.ASSET_DEB_X64 }}
+          asset_name: ${{ env.ASSET_DEB_X64 }}
