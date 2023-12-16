@@ -1,5 +1,10 @@
 const { app, BrowserWindow } = require("electron");
 
+// @ts-ignore
+process.mainModule = {
+  require,
+};
+
 const createWindow = async () => {
   const mainWindow = new BrowserWindow({
     width: 800,
