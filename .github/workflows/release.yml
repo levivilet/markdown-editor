@@ -31,6 +31,7 @@ jobs:
 
   build-release:
     name: build-release
+    runs-on: ubuntu-22.04
     needs: ["create-release"]
     strategy:
       fail-fast: true
