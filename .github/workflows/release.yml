@@ -75,3 +75,4 @@ jobs:
           upload_url: ${{ needs.create-release.outputs.upload_url }}
           asset_path: ${{ env.ASSET_DEB_X64 }}
           asset_name: ${{ env.ASSET_DEB_X64 }}
+          asset_content_type: application/octet-stream
