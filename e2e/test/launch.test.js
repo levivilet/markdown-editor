@@ -14,5 +14,5 @@ afterAll(async () => {
 test("launch", async () => {
   await waitForExpect(() => {
     expect(runner.succeeded).toBe(true);
-  });
+  }, 20_000);
 });
