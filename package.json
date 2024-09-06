@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "description": "Markdown Editor",
   "main": "mainProcess.js",
+  "type": "module",
   "scripts": {
     "postinstall": "cd e2e && npm ci",
     "dev": "electron mainProcess.js",
