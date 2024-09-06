@@ -1,9 +1,4 @@
-const { app, BrowserWindow } = require("electron");
-
-// @ts-ignore
-process.mainModule = {
-  require,
-};
+import { app, BrowserWindow } from "electron";
 
 const createWindow = async () => {
   const mainWindow = new BrowserWindow({

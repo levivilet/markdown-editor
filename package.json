@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "description": "Markdown Editor",
   "main": "mainProcess.js",
+  "type": "module",
   "scripts": {
     "postinstall": "cd e2e && npm ci",
     "dev": "electron mainProcess.js",
@@ -32,6 +33,6 @@
   "devDependencies": {
     "@electron-forge/cli": "^7.4.0",
     "@electron-forge/maker-deb": "^7.4.0",
-    "electron": "32.0.1"
+    "electron": "32.0.2"
   }
 }
