@@ -55,7 +55,7 @@ jobs:
       - name: Build
         run: npm run build
       - name: Upload result
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: markdown-editor-amd64.deb
           path: out/make/deb/x64/markdown-editor_1.0.0_amd64.deb
