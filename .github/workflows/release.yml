@@ -8,7 +8,7 @@ on:
 jobs:
   create-release:
     name: create-release
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-22.04
     timeout-minutes: 15
     outputs:
       upload_url: ${{ steps.release.outputs.upload_url }}
@@ -31,13 +31,13 @@ jobs:
 
   build-release:
     name: build-release
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-22.04
     needs: ["create-release"]
     strategy:
       fail-fast: true
       max-parallel: 1
       matrix:
-        os: [ubuntu-24.04]
+        os: [ubuntu-22.04]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -60,7 +60,7 @@ jobs:
           name: markdown-editor-amd64.deb
           path: out/make/deb/x64/markdown-editor_1.0.0_amd64.deb
       - name: Rename Electron App (deb, x64)
-        if: matrix.os == 'ubuntu-24.04'
+        if: matrix.os == 'ubuntu-22.04'
         shell: bash
         run: |
           staging="markdown-editor-${{ needs.create-release.outputs.rg_version }}_amd64.deb"
@@ -68,7 +68,7 @@ jobs:
           echo "ASSET_DEB_X64=$staging" >> $GITHUB_ENV
       - name: Release Electron App (deb, x64)
         uses: actions/upload-release-asset@v1.0.1
-        if: matrix.os == 'ubuntu-24.04'
+        if: matrix.os == 'ubuntu-22.04'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
